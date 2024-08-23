@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+
+:root {
+  --clr-1: #c0c0c0;
+  --clr-2: #d24b43;
+  --clr-3: #3c3c3c;
+  --clr-w: #fff;
+  --clr-b: #000a08;
+  --transition: all .3s linear;
+}
+
+h1 {
+  font-family: "Oswald", sans-serif;
+  font-style: normal;
+  font-size: 4em !important;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 5px solid var(--clr-2);
+}
+
+
+a,
+p {
+  font-family: "Oswald", sans-serif;
+  font-style: normal;
+}

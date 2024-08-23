@@ -1,0 +1,86 @@
+section {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 8vh;
+  position: relative;
+  overflow: hidden;
+
+  .title {
+    width: 45%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 10px;
+    transition: 1.5s;
+    opacity: 0;
+
+    h1 {
+      border-bottom: none;
+    }
+
+    .line {
+      width: 0;
+      height: 5px;
+      background-color: var(--clr-2);
+      margin-left: -20px;
+      transition: width 2s ease;
+    }
+  }
+
+  .europe_map {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+
+    svg {
+      width: auto;
+      height: 100%;
+
+      /*   g {
+                path {
+                    stroke: none;
+                    fill-rule: evenodd;
+                    fill: var(--clr-1);
+                    fill-opacity: 0.5;
+                    transition: transform 0.3s ease, fill 0.3s ease;
+                    cursor: pointer;
+
+                    &:hover {
+                        fill: #e0f74b;
+                    }
+
+                }
+
+                g path {
+                    fill: none;
+                    stroke-width: 0.8;
+                    stroke: var(--clr-b);
+
+
+                }
+
+
+            } */
+    }
+
+    &::after {
+      content: "";
+      background-image: url("../../../assets/image/logo.png");
+      background-size: contain; /* або 'cover' залежно від ваших потреб */
+      background-repeat: no-repeat;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 24%;
+      right: 18%;
+    }
+  }
+}

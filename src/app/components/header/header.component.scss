@@ -1,0 +1,23 @@
+section {
+  width: 100vw;
+  height: 8vh;
+  position: fixed;
+  z-index: 1000;
+
+  .navbar {
+    width: 100%;
+
+    .container-fluid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .navbar-brand {
+        margin-left: 10px;
+        font-size: 1.4em;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
+  }
+}

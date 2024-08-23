@@ -1,0 +1,59 @@
+<section>
+
+    <h1>Виберіть країну</h1>
+    <div class="add_coutry_block">
+
+        <form [formGroup]="countryForm" (ngSubmit)="creatCountry()" class="form_coutry">
+            <div class="form-group">
+                <label for="countrySelect">Виберіть країну</label>
+                <select id="countrySelect" class="form-control" (change)="onCountrySelect($event)">
+                    <option value="" disabled selected>Оберіть країну</option>
+                    <option *ngFor="let country of coutryList" [value]="country.link">{{ country.name }}</option>
+                </select>
+            </div>
+
+
+
+
+        </form>
+
+
+        <!--Таблиця країн-->
+        <h4>Обрані країни</h4>
+        <div class="table_block">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">№</th>
+                        <th scope="col">Назва</th>
+                        <th scope="col">Прапор</th>
+                        <th scope="col">Карта</th>
+                        <th scope="col">Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(country of countryArr; track country; let i = $index){
+                    <tr>
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ country.name}}</td>
+                        <td class="image">
+                            <img [src]="country.flag" />
+                        </td>
+                        <td class="image">
+                            <img [src]="country.circuit" />
+                        </td>
+                        <td class="btn_tr">
+                            <a (click)="delCountry(country)" type="button" title="Видалити">
+                                <img src="../../assets/icon/dell.png" alt="Видалити">
+                            </a>
+                        </td>
+
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</section>

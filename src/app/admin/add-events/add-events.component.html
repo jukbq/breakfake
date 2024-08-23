@@ -1,0 +1,152 @@
+<section>
+    <h1>Події</h1>
+
+
+    <div class="button_block">
+        <!--Кнопка створення подій-->
+        <div class="creat_button">
+            <p>Створити</p>
+            <button (click)="event_form = !event_form; resetForm()" class="btn btn-outline-secondary" data-rel="address"
+                type="button">
+                {{ !event_form ? "ДОДАТИ" : "ВІДМІНИТИ" }}
+            </button>
+        </div>
+        <!--Фільтр-->
+        <div class="filter" [ngClass]="{ active: event_form }">
+            <p>Фітр по країнах</p>
+            <div class="search">
+
+                <select id="countrySelect" class="form-control" (change)="onCountrySelect($event)">
+                    <option value="" disabled selected>Оберіть країну</option>
+                    <option *ngFor="let country of countryArr" [value]="country.id">{{ country.name }}</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+    <!--таблиця подій-->
+    <div class="table_block" [ngClass]="{ active: event_form }">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Країна</th>
+                    <th scope="col">Назва</th>
+                    <th scope="col">Опис</th>
+                    <th scope="col">Картинка</th>
+                    <th scope="col">Дії</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(events of eventArr; track eventArr; let i = $index){
+                <tr>
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ events.country.name}}</td>
+                    <td>{{ events.namen}}</td>
+                    <td [innerHTML]="events.description"></td>
+                    <td class="image">
+                        <img [src]="events.imagen" />
+                    </td>
+                    <td class="btn_tr">
+                        <a (click)="editEvent(events)" type="button" title="Редагувати">
+                            <img src="../../assets/icon/edit.png" alt="Редагувати">
+                        </a>
+                        <a (click)="delEvent(events)" type="button" title="Видалити">
+                            <img src="../../assets/icon/dell.png" alt="Видалити">
+                        </a>
+                    </td>
+
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div class="add_event_block" [ngClass]="{ active: !event_form }">
+        <form [formGroup]="eventForm" (ngSubmit)="creatEvent()" class="form_category">
+
+            <div class="form-group">
+                <label for="countrySelect">Виберіть країну</label>
+                <select id="countrySelect" formControlName="country" class="form-control">
+                    <option value="" disabled selected>Оберіть країну</option>
+                    <option [ngValue]="country" *ngFor="let country of countryArr">
+                        {{ country.name}}
+                    </option>
+                </select>
+            </div>
+
+            <!--Назва події-->
+            <div class="input_block name_organization">
+                <h4>Назва </h4>
+                <div class="input ">
+                    <input formControlName="nameOrganization" type="text" name="nameOrganization" class="form-control"
+                        placeholder="*Введіь назву події">
+                </div>
+            </div>
+
+            <!--Опис-->
+            <div class="input_block description_organization">
+                <h4>Опис</h4>
+                <div class="input ">
+                    <div class="input ">
+                        <editor apiKey="zbrfrvv9yk1ghizpiadd8qk7tmbf2ds9a5lwy3b6lzzpsvv8" [init]="{
+                                                plugins: '',
+                                                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+                                              }"></editor>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Зображення -->
+            <div class="image_organization">
+                <div class="progress_line">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar"
+                            aria-label="Default striped example" [style.width.%]="uploadPercent" aria-valuemin="0"
+                            aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="image_block">
+                    <div class="image">
+                        <img *ngIf="imagen; else emptyImage" [src]="imagen" alt="">
+                    </div>
+                    <ng-template #emptyImage>
+                        <div class="placeholder"></div>
+                    </ng-template>
+
+                    <input #fileInput type="file" style="display: none;" (change)="uploadUserImage($event)"
+                        accept="image/*" />
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+            <div class="button_block">
+                <button class="overlay btn btn-outline-secondary" type="button" (click)="fileInput.click()">Змінити
+                    зображення</button>
+
+
+
+                <div class="batton_section">
+                    <button [disabled]="eventForm.invalid" type="submit" class="btn btn-outline-secondary">
+                        Зберегти
+                    </button>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+
+
+</section>

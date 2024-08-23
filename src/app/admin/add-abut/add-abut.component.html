@@ -1,0 +1,67 @@
+<section>
+
+    <h1>Інфломація про проект</h1>
+
+
+    <form [formGroup]="aboutForm" (ngSubmit)="saveAbout()" class="form_category">
+        <!--Про проект-->
+        <div class="input_block description">
+            <h4>Опис</h4>
+            <div class="input ">
+                <div class="input ">
+                    <editor apiKey="zbrfrvv9yk1ghizpiadd8qk7tmbf2ds9a5lwy3b6lzzpsvv8" [init]="{
+                        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
+                        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+                      }"></editor>
+                </div>
+            </div>
+        </div>
+
+        <!-- Зображення-->
+        <div class="image">
+            <div class="progress_line">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar"
+                        aria-label="Default striped example" [style.width.%]="uploadPercent" aria-valuemin="0"
+                        aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="image_block">
+                <div class="image">
+                    <img *ngIf="imageAbout; else emptyImage" [src]="imageAbout" alt="">
+                </div>
+                <ng-template #emptyImage>
+                    <div class="placeholder"></div>
+                </ng-template>
+
+
+
+                <input #fileInput type="file" style="display: none;" (change)="uploadUserImage($event)"
+                    accept="image/*" />
+
+            </div>
+
+
+        </div>
+
+        <div class="button_block">
+            <button class="overlay btn btn-outline-secondary" type="button" (click)="fileInput.click()">Змінити
+                зображення</button>
+
+
+
+
+            <div class="batton_section">
+                <button type="submit" class="btn btn-outline-secondary">
+                    Зберегти
+                </button>
+            </div>
+
+        </div>
+
+
+
+    </form>
+
+
+</section>

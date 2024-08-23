@@ -1,0 +1,55 @@
+section {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 8vh;
+  position: relative;
+  overflow: hidden;
+}
+section .country-selection {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+}
+section .europe_map {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+section .europe_map svg {
+  width: auto;
+  height: 100%;
+  /*   g {
+      path {
+          stroke: none;
+          fill-rule: evenodd;
+          fill: var(--clr-1);
+          fill-opacity: 0.5;
+          transition: transform 0.3s ease, fill 0.3s ease;
+          cursor: pointer;
+
+          &:hover {
+              fill: #e0f74b;
+          }
+
+      }
+
+      g path {
+          fill: none;
+          stroke-width: 0.8;
+          stroke: var(--clr-b);
+
+
+      }
+
+
+  } */
+}

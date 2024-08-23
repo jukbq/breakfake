@@ -1,0 +1,23 @@
+<section>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="'country'" routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }">Країни</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="'fake'" routerLinkActive="active">Фейк</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="'about'" routerLinkActive="active">Про проект</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="'partners'" routerLinkActive="active">Партнери</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="'events'" routerLinkActive="active">Події</a>
+        </li>
+    </ul>
+
+
+    <router-outlet class="dmin_block"></router-outlet>
+</section>

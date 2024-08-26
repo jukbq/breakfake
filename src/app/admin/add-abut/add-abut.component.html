@@ -9,10 +9,11 @@
             <h4>Опис</h4>
             <div class="input ">
                 <div class="input ">
-                    <editor apiKey="zbrfrvv9yk1ghizpiadd8qk7tmbf2ds9a5lwy3b6lzzpsvv8" [init]="{
-                        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
-                        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-                      }"></editor>
+                    <editor apiKey="zbrfrvv9yk1ghizpiadd8qk7tmbf2ds9a5lwy3b6lzzpsvv8"
+                        [init]="{ plugins: 'lists link image table code help wordcount' }" [inline]="false"
+                        formControlName="description"
+                        toolbar="bold italic underline | formatpainter | aligncenter alignleft alignright alignjustify | selectall | ltr rtl | code | help">
+                    </editor>
                 </div>
             </div>
         </div>
@@ -26,21 +27,14 @@
                         aria-valuemax="100"></div>
                 </div>
             </div>
-            <div class="image_block">
-                <div class="image">
-                    <img *ngIf="imageAbout; else emptyImage" [src]="imageAbout" alt="">
-                </div>
-                <ng-template #emptyImage>
-                    <div class="placeholder"></div>
-                </ng-template>
-
-
-
-                <input #fileInput type="file" style="display: none;" (change)="uploadUserImage($event)"
-                    accept="image/*" />
-
+            <div class="image">
+                <img *ngIf="imageAbout; else emptyImage" [src]="imageAbout" alt="">
             </div>
+            <ng-template #emptyImage>
+                <div class="placeholder"></div>
+            </ng-template>
 
+            <input #fileInput type="file" style="display: none;" (change)="uploadUserImage($event)" accept="image/*" />
 
         </div>
 

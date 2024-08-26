@@ -106,7 +106,9 @@ export class AddFakeComponent {
       linkPetition: fake.linkPetition,
     });
 
-    this.fakeEditStatus = true;
+    this.imageOrganization = fake.imageOrganization,
+      this.fakeEditStatus = true;
+    this.uploadPercent = 100;
     this.fake_form = true;
     this.fakeID = fake.id;
   }
@@ -127,6 +129,8 @@ export class AddFakeComponent {
         .then(() => {
           this.fakeEditStatus = false;
           this.fake_form = false;
+          this.fakeForm.reset();
+          this.uploadPercent = 0;
           this.imageOrganization = '';
           this.ngOnInit();
         });
@@ -145,6 +149,8 @@ export class AddFakeComponent {
       this.fakeService.addFake(this.fakeForm.value).then(() => {
         this.fakeEditStatus = false;
         this.fake_form = false;
+        this.fakeForm.reset();
+        this.uploadPercent = 0;
         this.imageOrganization = '';
         this.ngOnInit()
       });

@@ -51,6 +51,7 @@ export class AddPartnerComponent {
       name: [null],
       description: [null],
       image: [null],
+      link: [null],
     });
   }
 
@@ -67,14 +68,16 @@ export class AddPartnerComponent {
       name: patners.name,
       description: patners.description,
       image: patners.image,
+      link: patners.link,
     });
-
+    this.image = patners.image;
     this.partnersEditStatus = true;
+    this.uploadPercent = 100;
     this.partners_form = true;
     this.partnersID = patners.id;
   }
 
-  delFake(index: any) {
+  delPartner(index: any) {
     const task = ref(this.storsgeIcon, index.imageOrganization);
     deleteObject(task);
     this.partnersService.delPartners(index.id as string).then(() => {
@@ -90,6 +93,8 @@ export class AddPartnerComponent {
         .then(() => {
           this.partnersEditStatus = false;
           this.partners_form = false;
+          this.partnersForm.reset();
+          this.uploadPercent = 0;
           this.image = '';
           this.ngOnInit();
         });
@@ -112,6 +117,8 @@ export class AddPartnerComponent {
       this.partnersService.addPartners(this.partnersForm.value).then(() => {
         this.partnersEditStatus = false;
         this.partners_form = false;
+        this.partnersForm.reset();
+        this.uploadPercent = 0;
         this.image = '';
         this.ngOnInit();
       });

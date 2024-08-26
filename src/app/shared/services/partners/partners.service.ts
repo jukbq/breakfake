@@ -30,6 +30,8 @@ export class PartnersService {
   }
 
   delPartners(id: any) {
+    console.log(id);
+
     const partnersReference = doc(this.afs, `partners/${id}`);
     return deleteDoc(partnersReference);
   }

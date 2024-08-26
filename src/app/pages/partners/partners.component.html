@@ -1,5 +1,24 @@
 <section>
+
     <div class="title">
-        <h1>PARTNERS</h1>
+        <div class="contru_name">
+            <h1>PARTNERS</h1>
+        </div>
+        <div class="line"></div>
     </div>
-</section><p>partners works!</p>
+
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of items">
+            <div>
+                <img [src]="item.imageUrl" alt="{{ item.title }}" class="img-fluid" style="max-width: 150px;">
+
+                <h5>{{ item.title }}</h5>
+                <p>{{ item.description }}</p>
+            </div>
+        </li>
+    </ul>
+
+
+
+    <app-footer></app-footer>
+</section>

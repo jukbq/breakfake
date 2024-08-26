@@ -53,6 +53,7 @@ export class AddEventsComponent {
       namen: [null],
       description: [null],
       imagen: [null],
+
     });
   }
 
@@ -98,7 +99,9 @@ export class AddEventsComponent {
       imagen: event.imagen,
 
     });
+    this.imagen = event.imagen;
     this.eventEditStatus = true;
+    this.uploadPercent = 100;
     this.event_form = true;
     this.eventID = event.id;
   }
@@ -119,6 +122,8 @@ export class AddEventsComponent {
         .then(() => {
           this.eventEditStatus = false;
           this.event_form = false;
+          this.resetForm();
+          this.uploadPercent = 0;
           this.imagen = '';
           this.ngOnInit();
         });
@@ -137,6 +142,8 @@ export class AddEventsComponent {
       this.eventService.addEvent(this.eventForm.value).then(() => {
         this.eventEditStatus = false;
         this.event_form = false;
+        this.resetForm();
+        this.uploadPercent = 0;
         this.imagen = '';
         this.ngOnInit()
       });

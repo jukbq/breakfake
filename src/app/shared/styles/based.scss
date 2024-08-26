@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 
 :root {
   --clr-1: #c0c0c0;
@@ -7,7 +6,7 @@
   --clr-3: #3c3c3c;
   --clr-w: #fff;
   --clr-b: #000a08;
-  --transition: all .3s linear;
+  --transition: all 0.3s linear;
 }
 
 h1 {
@@ -18,10 +17,25 @@ h1 {
   text-align: center;
   border-bottom: 5px solid var(--clr-2);
 }
-
-
 a,
 p {
   font-family: "Oswald", sans-serif;
   font-style: normal;
+}
+
+@media (max-width: 786px) {
+  h1 {
+    font-size: 3em !important;
+  }
+  a,
+  p {
+    font-family: "Oswald", sans-serif;
+    font-style: normal;
+    font-size: 12px;
+  }
+}
+@media (max-width: 580px) {
+  h1 {
+    font-size: 2em !important;
+  }
 }

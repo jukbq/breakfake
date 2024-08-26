@@ -10,15 +10,13 @@ export class AnimationService {
 
   applyParallaxEffect(selector: string, scrollPosition: number) {
     const bgImage = document.querySelector(selector) as HTMLElement;
-    const parallaxValue = scrollPosition * 0.5;
+    const parallaxValue = scrollPosition * 0.01;
     bgImage.style.transform = `translateY(${parallaxValue}px)`;
   }
 
   applyTextEffect(target: any) {
-    console.log(target);
-
     let thresholdValue;
-    const callback = () => {
+    const callback = (entries: IntersectionObserverEntry[]) => {
       if (target.className == 'title') {
         thresholdValue = 1;
         target.style.opacity = '1';
@@ -31,24 +29,6 @@ export class AnimationService {
         }
       }
 
-      /*   if (target.className == 'dishes_list') {
-          thresholdValue = 0.5;
-          const dishesCards = target.querySelectorAll('.dishes_card');
-          dishesCards.forEach((dishesCard: HTMLElement) => {
-            dishesCard.style.opacity = '1';
-            dishesCard.style.marginTop = '0px';
-          });
-        }
-        if (target.className == 'recipe_image') {
-          thresholdValue = 1;
-          target.style.opacity = '1';
-          target.style.left = '0px';
-        }
-        if (target.className == 'recipe_title') {
-          thresholdValue = 1;
-          target.style.opacity = '1';
-          target.style.left = '36%';
-        } */
     };
 
     const options = {
@@ -57,4 +37,9 @@ export class AnimationService {
     const observer = new IntersectionObserver(callback, options);
     observer.observe(target);
   }
+
+
+
+
+
 }

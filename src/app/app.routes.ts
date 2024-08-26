@@ -5,20 +5,21 @@ import { NgModule } from '@angular/core';
 import { AdminComponent } from './admin/admin.component';
 import { PartnersComponent } from './pages/partners/partners.component';
 import { EventsComponent } from './pages/events/events.component';
-import { ContactComponent } from './pages/contact/contact.component';
 import { AddPartnerComponent } from './admin/add-partner/add-partner.component';
 import { AddEventsComponent } from './admin/add-events/add-events.component';
 import { AddAbutComponent } from './admin/add-abut/add-abut.component';
 import { AddFakeComponent } from './admin/add-fake/add-fake.component';
 import { AddCountryComponent } from './admin/add-country/add-country.component';
+import { CountryComponent } from './pages/country/country.component';
 
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'country', component: CountryComponent },
   { path: 'about-project', component: AboutProjectComponent },
   { path: 'partners', component: PartnersComponent },
   { path: 'events', component: EventsComponent },
-  { path: 'contact', component: ContactComponent },
+
 
   {
     path: 'admin',

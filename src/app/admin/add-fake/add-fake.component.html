@@ -78,6 +78,10 @@
                 </select>
             </div>
 
+
+
+
+
             <!--Назва-->
             <div class="input_block name">
                 <p>Назва</p>
@@ -102,11 +106,13 @@
             <h4>Опис </h4>
             <div class="input ">
                 <div class="input ">
-                    <editor apiKey="zbrfrvv9yk1ghizpiadd8qk7tmbf2ds9a5lwy3b6lzzpsvv8" [init]="{
-                                                plugins: '',
-                                                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-                                              }"></editor>
-                </div>
+                    <editor apiKey="zbrfrvv9yk1ghizpiadd8qk7tmbf2ds9a5lwy3b6lzzpsvv8"
+                        [init]="{ plugins: 'lists link image table code help wordcount' }" [inline]="false"
+                        formControlName="descriptionOrganization"
+                        toolbar="bold italic underline | formatpainter | aligncenter alignleft alignright alignjustify | selectall | ltr rtl | code | help">
+                    </editor>
+
+                </div>>
             </div>
         </div>
 
@@ -119,19 +125,13 @@
                         aria-valuemax="100"></div>
                 </div>
             </div>
-            <div class="image_block">
-                <div class="image">
-                    <img *ngIf="imageOrganization; else emptyImage" [src]="imageOrganization" alt="">
-                </div>
-                <ng-template #emptyImage>
-                    <div class="placeholder"></div>
-                </ng-template>
-
-                <input #fileInput type="file" style="display: none;" (change)="uploadUserImage($event)"
-                    accept="image/*" />
-
+            <div class="image">
+                <img *ngIf="imageOrganization; else emptyImage" [src]="imageOrganization" alt="">
             </div>
-
+            <ng-template #emptyImage>
+                <div class="placeholder"></div>
+            </ng-template>
+            <input #fileInput type="file" style="display: none;" (change)="uploadUserImage($event)" accept="image/*" />
 
         </div>
 

@@ -1,0 +1,111 @@
+@media (max-width: 980px) {
+  section {
+    .title {
+      width: 30%;
+
+      h1 {
+        font-size: 3em !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 880px) {
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+
+    .background_image {
+      display: inline;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: translateY(0);
+        filter: blur(3px);
+      }
+    }
+
+    .title {
+      width: 100%;
+      height: auto;
+      position: relative;
+      align-items: center;
+      padding: 0;
+      margin-top: 20px;
+
+      h1 {
+        font-size: 2em !important;
+      }
+      .line {
+        margin-left: 0;
+      }
+    }
+
+    .eromap_desktop {
+      display: none;
+    }
+
+    .evromap_mobile {
+      width: 100vw;
+      height: auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .country_list {
+        width: 90%;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 20px;
+
+        .batton {
+          width: 40%;
+          margin-bottom: 25px;
+          .btn {
+            width: 100%;
+            border: 1px solid var(--clr-2);
+            background-color: var(--clr-w);
+            color: var(--clr-b);
+
+            &:hover {
+              background-color: var(--clr-2);
+              color: var(--clr-w);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  section {
+    .evromap_mobile {
+      .country_list {
+        .batton {
+          width: 90%;
+        }
+      }
+    }
+  }
+}

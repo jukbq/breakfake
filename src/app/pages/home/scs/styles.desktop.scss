@@ -1,0 +1,68 @@
+section {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 8vh;
+  position: relative;
+  overflow: hidden;
+
+  .background_image {
+    display: none;
+  }
+
+  .title {
+    width: 45%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 10px;
+    transition: 1.5s;
+    opacity: 0;
+
+    h1 {
+      border-bottom: none;
+    }
+
+    .line {
+      width: 0;
+      height: 5px;
+      background-color: var(--clr-2);
+      margin-left: -20px;
+      transition: width 2s ease;
+    }
+  }
+
+  .eromap_desktop {
+    width: 100%;
+    height: 100%;
+    padding-right: 0px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+
+    svg :not(:root) {
+      display: inline-block;
+      width: auto;
+      min-height: 800px;
+    }
+    .map g {
+      path {
+        stroke: none;
+        transition: transform 0.3s ease, fill 0.3s ease;
+        cursor: pointer;
+        &.active {
+          fill: #9796a3;
+        }
+      }
+    }
+  }
+
+  .evromap_mobile {
+    display: none;
+  }
+}

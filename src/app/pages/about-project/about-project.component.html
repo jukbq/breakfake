@@ -1,6 +1,23 @@
-
 <section>
+
+
     <div class="title">
-        <h1>ABOUT PROJECT</h1>
+        <div class="contru_name">
+            <h1>ABOUT PROJECT</h1>
+        </div>
+        <div class="line"></div>
     </div>
+
+    <div class="description position-relative">
+        <img [src]="image" class="img-fluid" alt="Background Image">
+        <div class="content position-absolute top-50 start-50 translate-middle text-white" [innerHTML]="description">
+
+        </div>
+    </div>
+
+
+
+
+    <app-footer></app-footer>
+
 </section>

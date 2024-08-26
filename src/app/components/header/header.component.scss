@@ -14,10 +14,15 @@ section {
       justify-content: space-between;
 
       .navbar-brand {
+        height: 100%;
+        display: flex;
+        align-items: center;
         margin-left: 10px;
-        font-size: 1.4em;
-        font-weight: 600;
         cursor: pointer;
+        img {
+          width: auto;
+          height: 4vh;
+        }
       }
     }
   }

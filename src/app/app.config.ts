@@ -16,19 +16,25 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     provideAnimationsAsync(),
-    provideFirebaseApp(() =>
-      
-      initializeApp({
-        projectId: 'breakfake-54baa',
-        appId: '1:374592407666:web:6001353bef3187bbb21aeb',
-        storageBucket: 'breakfake-54baa.appspot.com',
-        apiKey: 'AIzaSyAiqDIFGjQMx03xnEs9W4FbqoXrugZw7xo',
-        authDomain: 'breakfake-54baa.firebaseapp.com',
-        messagingSenderId: '374592407666',
-      })
-    ),
+    /*   provideFirebaseApp(() =>
+  
+        initializeApp({
+          projectId: 'breakfake-54baa',
+          appId: '1:374592407666:web:6001353bef3187bbb21aeb',
+          storageBucket: 'breakfake-54baa.appspot.com',
+          apiKey: 'AIzaSyAiqDIFGjQMx03xnEs9W4FbqoXrugZw7xo',
+          authDomain: 'breakfake-54baa.firebaseapp.com',
+          messagingSenderId: '374592407666',
+        })
+      ), */
     provideAuth(() => getAuth()),
+    provideFirebaseApp(() => initializeApp({ "projectId": "prometeus-79b24", "appId": "1:663155614511:web:47398f23a9c553782937da", "storageBucket": "prometeus-79b24.appspot.com", "apiKey": "AIzaSyBVoTt6Am5VCC3Ikv5PMsblwKudNEqr8mM", "authDomain": "prometeus-79b24.firebaseapp.com", "messagingSenderId": "663155614511", "measurementId": "G-95MNMXZCP9" })),
+    provideAuth(() => getAuth()),
+    provideAnalytics(() => getAnalytics()),
+    ScreenTrackingService,
+    UserTrackingService,
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
- ],
+    provideVertexAI(() => getVertexAI()),
+  ],
 };

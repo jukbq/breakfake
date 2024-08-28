@@ -45,8 +45,8 @@
 
                 <!-- Права колонка: Деталі -->
                 <div class="col-md-8">
-
                     <div class="information" *ngIf="selectedItem">
+                        <a class="pettion_btn" href="{{selectedItem.linkPetition}}" target="_blank">PETITION</a>
                         <h2>{{ selectedItem.nameOrganization }}</h2>
                         <p class="description" [innerHTML]="selectedItem.descriptionOrganization"></p>
                         <img [src]="selectedItem.imageOrganization" alt="Image" class="img-fluid">
@@ -60,7 +60,7 @@
         <div class="footer_links">
             <ul>
                 <li class="nav-item">
-                    <a [routerLink]="['/about-project']" class="nav-link">About project</a>
+                    <a [routerLink]="['/about-project']" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
                     <a [routerLink]="['/partners']" class="nav-link">Partners</a>

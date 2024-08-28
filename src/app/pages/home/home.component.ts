@@ -24,7 +24,6 @@ export class HomeComponent {
     private router: Router,
     private animationService: AnimationService,
     private countryService: CountryService
-
   ) { }
 
 
@@ -46,7 +45,6 @@ export class HomeComponent {
 
   onMouseEnter(event: MouseEvent): void {
     const target = event.target as HTMLElement;
-    console.log(target);
 
     if (target.tagName === 'path') {
       const className = Array.from(target.classList).join(' ');

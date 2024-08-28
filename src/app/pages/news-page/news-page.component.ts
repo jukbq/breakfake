@@ -1,17 +1,21 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { EventsService } from '../../shared/services/events/events.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-news-page',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, RouterLink],
   templateUrl: './news-page.component.html',
   styleUrl: './news-page.component.scss'
 })
 export class NewsPageComponent {
   public newsID = '';
   public name = '';
+  public imagen = '';
+  public description = '';
+  public link = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -20,7 +24,6 @@ export class NewsPageComponent {
 
   ngOnInit() {
     this.newsID = this.route.snapshot.queryParams['newsID'];
-    console.log(this.newsID);
     this.getNews()
   };
 
@@ -28,9 +31,9 @@ export class NewsPageComponent {
   getNews() {
     this.nwsServis.geteventById(this.newsID).subscribe((data: any) => {
       this.name = data.namen
-
-      console.log(this.name)
-
+      this.imagen = data.imagen
+      this.description = data.description
+      this.link = data.link
 
 
     })

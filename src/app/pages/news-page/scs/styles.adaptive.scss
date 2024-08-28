@@ -1,0 +1,28 @@
+/* @media (max-width: 786px) {
+  section {
+    .content {
+      .title {
+        width: 90%;
+      }
+
+      .description {
+        width: 90%;
+        .img-fluid {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  section {
+    .description {
+      .img-fluid {
+        width: auto;
+      }
+    }
+  }
+}
+ */

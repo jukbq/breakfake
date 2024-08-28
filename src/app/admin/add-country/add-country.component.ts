@@ -346,6 +346,9 @@ export class AddCountryComponent {
         circuit: '../../assets/image/circuit/monaco.png',
       },
     ];
+
+    this.coutryList.sort((a, b) => a.name.localeCompare(b.name));
+
     // Завантажте список країн, які вже є в базі даних
     this.getCountry();
   }

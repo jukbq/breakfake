@@ -12,7 +12,7 @@
             <div class="search">
                 <select id="countrySelect" class="form-control" (change)="onCountrySelect($event)">
                     <option value="" disabled selected>Choose a country</option>
-                    <option value="all">All</option>
+                    <option class="country" value="all">All</option>
                     <option *ngFor="let country of countryArr" [value]="country.id">{{ country.name }}</option>
                 </select>
             </div>
@@ -20,14 +20,19 @@
 
         <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of items">
+
                 <div class="image_link">
-                    <a [href]="item.link" target="_blank">
-                        <img [src]="item.imagen" alt="{{ item.namen }}" class="img-fluid" style="max-width: 150px;">
+                    <a [routerLink]="['/news-page']" [queryParams]="{ newsID: item.id }">
+                        <div class="img_black">
+                            <img [src]="item.imagen" alt="{{ item.namen}}" />
+                        </div>
                     </a>
                 </div>
                 <div class="title_description">
-                    <h5>{{ item.namen }}</h5>
-                    <p [innerHTML]="item.description"></p>
+                    <h4>{{ item.namen }}</h4>
+
+                    <button type="button" class="btn btn-outline-secondary" [routerLink]="['/news-page']"
+                        [queryParams]="{ newsID: item.id }">More >>></button>
                 </div>
             </li>
         </ul>

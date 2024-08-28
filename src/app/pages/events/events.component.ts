@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { CountryService } from '../../shared/services/country/country.service';
 import { EventResponse } from '../../shared/interfaces/events';
 import { EventsService } from '../../shared/services/events/events.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './events.component.html',
   styleUrl: './events.component.scss'
 })

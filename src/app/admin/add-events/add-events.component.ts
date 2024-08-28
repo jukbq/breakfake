@@ -28,7 +28,7 @@ export class AddEventsComponent {
   public eventForm!: FormGroup;
   public uploadPercent!: number;
   public imagen = '';
-  public event_form = true;
+  public event_form = false;
   public eventEditStatus = false;
   private eventID!: number | string;
 
@@ -89,6 +89,9 @@ export class AddEventsComponent {
 
   onCountrySelect(event: any): void {
     const selectedCountry = event.target.value;
+    this.eventService.getEventByCountryID(selectedCountry).subscribe((data: any) => {
+      this.eventArr = data
+    });
   }
 
   // Редагування події

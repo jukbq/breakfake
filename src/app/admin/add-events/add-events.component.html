@@ -1,5 +1,5 @@
 <section>
-    <h1>Події</h1>
+    <h1>Новини</h1>
 
 
     <div class="button_block">
@@ -43,8 +43,10 @@
                 <tr>
                     <td>{{ i + 1 }}</td>
                     <td>{{ events.country.name}}</td>
-                    <td>{{ events.namen}}</td>
-                    <td [innerHTML]="events.description"></td>
+                    <td class="name">{{ events.namen}}</td>
+                    <td>
+                        <div class="description" [innerHTML]="events.description"></div>
+                    </td>
                     <td class="image">
                         <img [src]="events.imagen" />
                     </td>
@@ -101,7 +103,7 @@
                 <h4>Опис</h4>
                 <div class="input ">
                     <div class="input ">
-                        <editor apiKey="zbrfrvv9yk1ghizpiadd8qk7tmbf2ds9a5lwy3b6lzzpsvv8"
+                        <editor apiKey="7nz9ybi4njv0mtwxfy0gssnq6mboi2nk7jetpeg4n7brgqxq"
                             [init]="{ plugins: 'lists link image table code help wordcount' }" [inline]="false"
                             formControlName="description"
                             toolbar="bold italic underline | formatpainter | aligncenter alignleft alignright alignjustify | selectall | ltr rtl | code | help">

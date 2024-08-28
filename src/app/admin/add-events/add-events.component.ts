@@ -28,7 +28,7 @@ export class AddEventsComponent {
   public eventForm!: FormGroup;
   public uploadPercent!: number;
   public imagen = '';
-  public event_form = false;
+  public event_form = true;
   public eventEditStatus = false;
   private eventID!: number | string;
 
@@ -51,6 +51,7 @@ export class AddEventsComponent {
     this.eventForm = this.formBuild.group({
       country: [null],
       namen: [null],
+      link: [null],
       description: [null],
       imagen: [null],
 
@@ -95,6 +96,7 @@ export class AddEventsComponent {
     this.eventForm.patchValue({
       country: event.country,
       namen: event.namen,
+      link: event.link,
       description: event.description,
       imagen: event.imagen,
 
@@ -102,6 +104,7 @@ export class AddEventsComponent {
     this.imagen = event.imagen;
     this.eventEditStatus = true;
     this.uploadPercent = 100;
+
     this.event_form = true;
     this.eventID = event.id;
   }

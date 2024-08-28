@@ -66,9 +66,9 @@
 
 
     <div class="add_event_block" [ngClass]="{ active: !event_form }">
-        <form [formGroup]="eventForm" (ngSubmit)="creatEvent()" class="form_category">
+        <form [formGroup]="eventForm" (ngSubmit)="creatEvent()" class="form_events">
 
-            <div class="form-group">
+            <div class="country_select form-group">
                 <label for="countrySelect">Виберіть країну</label>
                 <select id="countrySelect" formControlName="country" class="form-control">
                     <option value="" disabled selected>Оберіть країну</option>
@@ -79,7 +79,7 @@
             </div>
 
             <!--Назва події-->
-            <div class="input_block name_organization">
+            <div class="input_block name">
                 <h4>Назва </h4>
                 <div class="input ">
                     <input formControlName="namen" type="text" name="nameOrganization" class="form-control"
@@ -87,8 +87,17 @@
                 </div>
             </div>
 
+            <!--Посилання-->
+            <div class="input_block link">
+                <h4>Посилання </h4>
+                <div class="input ">
+                    <input formControlName="link" type="text" name="link" class="form-control"
+                        placeholder="*Введіь посилання">
+                </div>
+            </div>
+
             <!--Опис-->
-            <div class="input_block description_organization">
+            <div class="input_block description">
                 <h4>Опис</h4>
                 <div class="input ">
                     <div class="input ">

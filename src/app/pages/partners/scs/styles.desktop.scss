@@ -1,9 +1,9 @@
 section {
   width: 100vw;
-  height: 100vh;
+  height: auto;
   padding-top: 8vh;
   position: relative;
-  overflow: hidden;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,6 +35,31 @@ section {
       background-color: var(--clr-2);
 
       transition: width 2s ease;
+    }
+  }
+
+  .list-group {
+    width: 80%;
+    height: auto;
+    display: flex;
+    list-style: none;
+    margin-bottom: 10vh;
+    li {
+      border: none;
+      border-bottom: 0.3px solid var(--clr-3);
+
+      .image_link {
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .title_description {
+        width: 70%;
+        p {
+          text-align: justify;
+        }
+      }
     }
   }
 }

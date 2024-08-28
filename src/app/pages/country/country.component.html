@@ -1,66 +1,91 @@
 <section>
-    <div class="bg_image">
-        <img [src]="map" class="img-fluid" alt="Background Image">
 
-    </div>
-
-    <div class="title">
-        <div class="contru_name">
+    <div class="content">
+        <div class="title">
             <div class="fla">
                 <img src="{{flag}}" alt="" srcset="">
             </div>
-            <h1>{{name}}</h1>
-        </div>
-        <div class="line"></div>
-    </div>
-
-
-
-    <div class="container-fluid">
-
-        <div class="row">
-            <!-- Ліва колонка: Меню -->
-            <div class="col-md-4 d-none d-md-block">
-                <ul class="list-group">
-                    <li *ngFor="let item of items"
-                        [ngClass]="{'list-group-item': true, 'active': selectedItem?.id === item.id}"
-                        (click)="selectItem(item)">
-                        {{ item.nameOrganization }}
-                    </li>
-                </ul>
+            <div class="contru_name">
+                <h1>{{name}}</h1>
             </div>
+            <div class="line"></div>
+        </div>
 
-            <!-- Мобільне меню -->
-            <div class="col-12 d-md-none">
-                <div class="dropdown">
-                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Select an organization
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div class="container-fluid">
+
+            <div class="row">
+                <!-- Ліва колонка: Меню -->
+                <div class="col-md-4 d-none d-md-block">
+                    <ul class="list-group">
                         <li *ngFor="let item of items"
-                            [ngClass]="{'list-group-item': true, 'active': selectedItem?.id === item.id}">
-                            <a class="dropdown-item" (click)="selectItem(item)">
-                                {{ item.nameOrganization }}
-                            </a>
+                            [ngClass]="{'list-group-item': true, 'active': selectedItem?.id === item.id}"
+                            (click)="selectItem(item)">
+                            {{ item.nameOrganization }}
                         </li>
                     </ul>
                 </div>
-            </div>
 
-            <!-- Права колонка: Деталі -->
-            <div class="col-md-8">
+                <!-- Мобільне меню -->
+                <div class="col-12 d-md-none">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Select an organization
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li *ngFor="let item of items"
+                                [ngClass]="{'list-group-item': true, 'active': selectedItem?.id === item.id}">
+                                <a class="dropdown-item" (click)="selectItem(item)">
+                                    {{ item.nameOrganization }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-                <div class="information" *ngIf="selectedItem">
-                    <h2>{{ selectedItem.nameOrganization }}</h2>
-                    <p class="description" [innerHTML]="selectedItem.descriptionOrganization"></p>
-                    <img [src]="selectedItem.imageOrganization" alt="Image" class="img-fluid">
+                <!-- Права колонка: Деталі -->
+                <div class="col-md-8">
+
+                    <div class="information" *ngIf="selectedItem">
+                        <h2>{{ selectedItem.nameOrganization }}</h2>
+                        <p class="description" [innerHTML]="selectedItem.descriptionOrganization"></p>
+                        <img [src]="selectedItem.imageOrganization" alt="Image" class="img-fluid">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <footer>
+        <div class="footer_links">
+            <ul>
+                <li class="nav-item">
+                    <a [routerLink]="['/about-project']" class="nav-link">About project</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/partners']" class="nav-link">Partners</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/events']" class="nav-link">Events</a>
+                </li>
+
+            </ul>
+            <div class="contact">
+                <a href="mailto:brakethefakes&#64;gmail.com">brakethefakes&#64;gmail.com</a>
+                <a class="facebook" href="https://www.facebook.com/caukraine" target="_blank" rel="noopener noreferrer">
+                    <img src="../../../assets/icon/facebook.png" alt="">
+                </a>
+                <a class="facebook" href="https://www.instagram.com/caukraine2022/" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="../../../assets/icon/instagram.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="creat">
+            <p>© 2024 All Rights Reserved.</p>
+        </div>
+    </footer>
 
 
-    <app-footer></app-footer>
+
 </section>

@@ -85,6 +85,7 @@ export class AddFakeComponent {
     });
   }
 
+
   // Отримання фейків  з сервера
   getFake(): void {
     this.fakeService.getAll().subscribe((data: any) => {

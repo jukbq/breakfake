@@ -38,32 +38,42 @@ section {
     }
   }
 
-  .description {
+  .events_list {
     width: 80%;
     height: auto;
-    position: relative;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
-
-    .image {
-      width: 40%;
-      height: auto;
-      position: relative;
-      overflow: hidden;
-      padding-top: 5px;
-
-      .img-fluid {
-        width: 100%;
-        filter: blur(1px);
-      }
+    margin-top: 10px;
+    margin-bottom: 10vh;
+    .filter {
+      width: 30%;
     }
-    .content {
-      width: 60%;
-      height: 100%;
-      padding: 5px 10px;
-      text-align: justify;
+    .list-group {
+      width: 100%;
+      height: auto;
+      display: flex;
+      list-style: none;
       margin-bottom: 10vh;
-      line-height: 1.6;
+      li {
+        border: none;
+        border-bottom: 0.3px solid var(--clr-3);
+
+        .image_link {
+          width: 30%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .title_description {
+          width: 70%;
+
+          p {
+            float: left;
+            text-align: justify;
+          }
+        }
+      }
     }
   }
 }

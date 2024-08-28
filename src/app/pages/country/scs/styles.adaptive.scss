@@ -1,7 +1,33 @@
+@media (max-width: 786px) {
+  section {
+    .content {
+      .title {
+        .fla {
+          height: 3em;
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 550px) {
   section {
-    .container-fluid {
+    .content {
       width: 90%;
+      .title {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .fla {
+          position: relative;
+          height: 2em;
+          left: 0;
+        }
+        .contru_name {
+          width: 100%;
+          text-align: center;
+        }
+      }
     }
   }
 }

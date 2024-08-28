@@ -168,7 +168,7 @@ export class AddCountryComponent {
       {
         name: 'Italy',
         link: 'italy',
-        flag: '../../assets/image/italy/france.png',
+        flag: '../../assets/image/flags/italy.png',
         circuit: '../../assets/image/circuit/italy.png',
       },
       {

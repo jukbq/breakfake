@@ -1,17 +1,17 @@
 import { Component, HostListener } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CountryService } from '../../shared/services/country/country.service';
 import { FakeService } from '../../shared/services/fake/fake.service';
 import { FakeResponse } from '../../shared/interfaces/fake';
 import { AnimationService } from '../../shared/services/animation/animation.service';
 import { CommonModule } from '@angular/common';
 import { log } from 'console';
-import { FooterComponent } from "../../components/footer/footer.component";
+
 
 @Component({
   selector: 'app-country',
   standalone: true,
-  imports: [CommonModule, FooterComponent],
+  imports: [CommonModule, RouterLink],
   templateUrl: './country.component.html',
   styleUrl: './country.component.scss'
 })

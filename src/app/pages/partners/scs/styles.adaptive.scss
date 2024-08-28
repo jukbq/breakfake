@@ -1,26 +1,16 @@
-@media (max-width: 786px) {
-  section {
-    .title {
-      width: 90%;
-    }
-
-    .description {
-      width: 90%;
-      height: 70vh;
-      .img-fluid {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
-}
-
 @media (max-width: 580px) {
   section {
-    .description {
-      height: 80vh;
-      .img-fluid {
-        width: auto;
+    .list-group {
+      li {
+        display: flex;
+        flex-direction: column;
+
+        .image_link {
+          width: 100%;
+        }
+        .title_description {
+          width: 100%;
+        }
       }
     }
   }

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { AboutService } from '../../shared/services/about/about.service';
-import { FooterComponent } from "../../components/footer/footer.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-about-project',
   standalone: true,
-  imports: [FooterComponent],
+  imports: [RouterLink],
   templateUrl: './about-project.component.html',
   styleUrl: './about-project.component.scss'
 })

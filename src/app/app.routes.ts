@@ -11,6 +11,7 @@ import { AddAbutComponent } from './admin/add-abut/add-abut.component';
 import { AddFakeComponent } from './admin/add-fake/add-fake.component';
 import { AddCountryComponent } from './admin/add-country/add-country.component';
 import { CountryComponent } from './pages/country/country.component';
+import { NewsPageComponent } from './pages/news-page/news-page.component';
 
 
 export const routes: Routes = [
@@ -19,6 +20,7 @@ export const routes: Routes = [
   { path: 'about-project', component: AboutProjectComponent },
   { path: 'partners', component: PartnersComponent },
   { path: 'events', component: EventsComponent },
+  { path: 'news-page', component: NewsPageComponent },
 
 
   {

@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
-import { FooterComponent } from "../../components/footer/footer.component";
+
 import { PartnersService } from '../../shared/services/partners/partners.service';
+import { CommonModule } from '@angular/common';
+import { PartnersResponse } from '../../shared/interfaces/partners';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-partners',
   standalone: true,
-  imports: [FooterComponent],
+  imports: [CommonModule, RouterLink],
   templateUrl: './partners.component.html',
   styleUrl: './partners.component.scss'
 })
 export class PartnersComponent {
-  public about: any = [];
+  public items: PartnersResponse[] = [];
   public image = ''
   public description = ''
 
@@ -25,11 +28,7 @@ export class PartnersComponent {
 
   getPartnert(): void {
     this.aboutSevice.getAll().subscribe((data: any) => {
-      console.log(data);
-
-
-
-
+      this.items = data;
     })
   }
 

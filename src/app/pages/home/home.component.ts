@@ -35,6 +35,8 @@ export class HomeComponent {
     this.getCountry()
   }
 
+  
+
   getCountry(): void {
     this.countryService.getAll().subscribe((data: any[]) => {
       this.countryArr = data;

@@ -35,6 +35,5 @@ export const appConfig: ApplicationConfig = {
     UserTrackingService,
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
-    provideVertexAI(() => getVertexAI()),
-  ],
+    provideVertexAI(() => getVertexAI()),],
 };

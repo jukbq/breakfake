@@ -7,7 +7,7 @@
     </div>
 
     <div class="image">
-        <img *ngIf="imagen" [src]="imagen" alt="">
+        <img *ngIf="imagen" [src]="imagen" alt="Image" (click)="openModal(imagen)">
     </div>
 
     <div class="description" [innerHTML]="description">

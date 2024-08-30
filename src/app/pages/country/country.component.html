@@ -49,12 +49,15 @@
                         <a class="pettion_btn" href="{{selectedItem.linkPetition}}" target="_blank">PETITION</a>
                         <h2>{{ selectedItem.nameOrganization }}</h2>
                         <p class="description" [innerHTML]="selectedItem.descriptionOrganization"></p>
-                        <img [src]="selectedItem.imageOrganization" alt="Image" class="img-fluid">
+                        <img [src]="selectedItem.imageOrganization" alt="Image" class="img-fluid"
+                            (click)="openModal(selectedItem.imageOrganization)">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 
     <footer>
         <div class="footer_links">

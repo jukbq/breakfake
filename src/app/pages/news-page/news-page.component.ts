@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { EventsService } from '../../shared/services/events/events.service';
 import { CommonModule } from '@angular/common';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ImageOpenComponent } from '../../modal/image-open/image-open.component';
 
 @Component({
   selector: 'app-news-page',
@@ -19,6 +21,7 @@ export class NewsPageComponent {
 
   constructor(
     private route: ActivatedRoute,
+    private modalService: NgbModal,
     private nwsServis: EventsService
   ) { };
 
@@ -39,5 +42,13 @@ export class NewsPageComponent {
     })
   }
 
+
+
+  //відкриття модального вікна для зображеня
+  openModal(image: string) {
+    const modalRef = this.modalService.open(ImageOpenComponent);
+    modalRef.componentInstance.imageSrc = image;
+
+  }
 
 }

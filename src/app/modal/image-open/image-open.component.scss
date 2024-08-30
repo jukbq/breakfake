@@ -1,0 +1,28 @@
+.modal {
+  .modal-dialog {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1.5) !important;
+    margin: 0 auto !important;
+    .modal-content {
+      width: 100%;
+      height: auto;
+      .modal-body {
+        padding-top: 25px;
+        .btn-close {
+          position: absolute;
+          top: 0;
+          right: 3%;
+          border: none;
+          &:focus {
+            box-shadow: none;
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}

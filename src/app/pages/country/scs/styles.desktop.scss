@@ -85,7 +85,14 @@ section {
             border-color: var(--clr-b);
 
             .list-group-item {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
               border-color: var(--clr-b);
+              cursor: pointer;
+              &:hover {
+                background-color: var(--clr-1);
+              }
 
               &.active {
                 background-color: var(--clr-2);

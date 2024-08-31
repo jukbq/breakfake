@@ -43,12 +43,13 @@ export class NewsPageComponent {
   }
 
 
-
-  //відкриття модального вікна для зображеня
   openModal(image: string) {
-    const modalRef = this.modalService.open(ImageOpenComponent);
-    modalRef.componentInstance.imageSrc = image;
-
+    if (window.innerWidth >= 780) {
+      const modalRef = this.modalService.open(ImageOpenComponent);
+      modalRef.componentInstance.imageSrc = image;
+    } else {
+      console.log('Модальне вікно не відкривається на екранах менших за 768 пікселів.');
+    }
   }
 
 }

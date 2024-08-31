@@ -1,8 +1,9 @@
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser, PlatformLocation } from '@angular/common';
 import { Component, ElementRef, HostListener, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
 import { AnimationService } from '../../shared/services/animation/animation.service';
 import { Router, RouterLink } from '@angular/router';
 import { CountryService } from '../../shared/services/country/country.service';
+import { Meta } from '@angular/platform-browser';
 
 
 
@@ -16,6 +17,13 @@ import { CountryService } from '../../shared/services/country/country.service';
 export class HomeComponent {
   @ViewChild('textBlocks') textBlocksRef!: ElementRef<HTMLDivElement>;
   public countryArr: any[] = [];
+  public metaName = 'BrakeTheFake - Anti-fakes and propaganda initiative';
+  public metaDescription = 'BrakeTheFake is a platform that joins forces in the fight against disinformation and propaganda. Learn more about the media resources that spread fake news and join the initiative to block them.';
+  public autor = 'BrakeTheFake';
+  public metaImage = '../../../assets/image/logo.png';
+  public currentURL = this.platformLocation.href;
+
+
 
   constructor(
     @Inject(DOCUMENT)
@@ -23,7 +31,11 @@ export class HomeComponent {
     @Inject(PLATFORM_ID) private platformId: Object,
     private router: Router,
     private animationService: AnimationService,
-    private countryService: CountryService
+    private countryService: CountryService,
+    private platformLocation: PlatformLocation,
+    private meta: Meta
+
+
   ) { }
 
 
@@ -32,10 +44,29 @@ export class HomeComponent {
       const title = document.querySelector('.title');
       this.animationService.applyTextEffect(title);
     };
+
+    //metatags
+    this.meta.updateTag({ name: 'title', content: this.metaName });
+    this.meta.updateTag({ name: 'description', content: this.metaDescription });
+    this.meta.updateTag({ name: 'author', content: this.autor });
+    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
+    this.meta.updateTag({
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1',
+    });
+
+    //op metatags
+    /*     this.meta.updateTag({ property: 'fb:app_id', content: '433617998637385' }); */
+    this.meta.updateTag({ property: 'fb:url', content: this.currentURL });
+    this.meta.updateTag({ property: 'og:title', content: this.metaName });
+    this.meta.updateTag({ property: 'og:description', content: this.metaDescription });
+    this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.meta.updateTag({ property: 'og:image', content: this.metaImage });
+
     this.getCountry()
   }
 
-  
+
 
   getCountry(): void {
     this.countryService.getAll().subscribe((data: any[]) => {

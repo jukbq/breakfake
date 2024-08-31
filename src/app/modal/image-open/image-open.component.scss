@@ -1,6 +1,6 @@
 .modal {
   .modal-dialog {
-    width: 100vw;
+    /*     width: 100vw; */
     height: 100vh;
     display: flex;
     align-items: center;
@@ -8,7 +8,7 @@
     transform: scale(1.5) !important;
     margin: 0 auto !important;
     .modal-content {
-      width: 100%;
+      max-width: 100%;
       height: auto;
       .modal-body {
         padding-top: 25px;

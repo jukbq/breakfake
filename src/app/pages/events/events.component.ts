@@ -37,8 +37,6 @@ export class EventsComponent {
 
   onCountrySelect(event: any): void {
     const selectedCountry = event.target.value;
-    console.log(selectedCountry);
-
     this.getCoutryNews(selectedCountry);
   }
 

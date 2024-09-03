@@ -94,7 +94,20 @@ export class AddFakeComponent {
   }
 
   onCountrySelect(event: any): void {
-    const selectedCountry = event.target.value;
+    const contryID = event.target.value;
+    this.getCoutryFakes(contryID)
+
+
+  }
+
+  getCoutryFakes(contryID: any) {
+    if (contryID == 'all') {
+      this.getFake()
+    } else {
+      this.fakeService.getFakeByCountryID(contryID).subscribe((data: any) => {
+        this.fakeArr = data;
+      })
+    }
   }
 
   // Редагування фека

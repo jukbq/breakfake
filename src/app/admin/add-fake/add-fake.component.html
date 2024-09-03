@@ -19,6 +19,7 @@
 
                 <select id="countrySelect" class="form-control" (change)="onCountrySelect($event)">
                     <option value="" disabled selected>Оберіть країну</option>
+                    <option class="country" value="all">All</option>
                     <option *ngFor="let country of countryArr" [value]="country.id">{{ country.name }}</option>
                 </select>
             </div>

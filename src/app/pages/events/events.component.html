@@ -28,12 +28,14 @@
                         </div>
                     </a>
                 </div>
+            <div class="title_block">
                 <div class="title_description">
                     <h4>{{ item.namen }}</h4>
                 </div>
                 <div class="more_btn">
                     <button type="button" class="btn btn-outline-secondary" [routerLink]="['/news-page']"
                         [queryParams]="{ newsID: item.id }">More </button>
+                </div>
                 </div>
             </li>
         </ul>

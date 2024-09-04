@@ -68,7 +68,7 @@ section {
       margin-bottom: 10vh;
       li {
         width: 100%;
-        height: auto;
+        height: 200px;
         position: relative;
         border: none;
         border-bottom: 0.3px solid var(--clr-3);
@@ -76,7 +76,7 @@ section {
 
         .image_link {
           width: 30%;
-          height: auto;
+          height: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -106,24 +106,27 @@ section {
             }
           }
         }
-
-        .title_description {
+        .title_block {
           width: 70%;
-          height: auto;
-          position: relative;
+          height: 100%;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          justify-content: center;
-          padding-left: 15px;
-        }
-        .more_btn {
-          width: 100%;
-          position: relative;
-          display: flex;
-          justify-content: flex-end;
-          .btn {
-            width: 100px;
+          justify-content: space-between;
+          .title_description {
+            width: 100%;
+            height: auto;
+            position: relative;
+            padding-left: 15px;
+          }
+          .more_btn {
+            width: 100%;
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            .btn {
+              width: 100px;
+            }
           }
         }
       }

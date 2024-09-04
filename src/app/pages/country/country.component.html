@@ -46,7 +46,7 @@
                 <!-- Права колонка: Деталі -->
                 <div class="col-md-8">
                     <div class="information" *ngIf="selectedItem">
-                        <a class="pettion_btn" href="{{selectedItem.linkPetition}}" target="_blank">PETITION</a>
+                        <a *ngIf="selectedItem.linkPetition" class="pettion_btn" href="{{selectedItem.linkPetition}}" target="_blank">PETITION</a>
                         <h2>{{ selectedItem.nameOrganization }}</h2>
                         <p class="description" [innerHTML]="selectedItem.descriptionOrganization"></p>
                         <img [src]="selectedItem.imageOrganization" alt="Image" class="img-fluid"

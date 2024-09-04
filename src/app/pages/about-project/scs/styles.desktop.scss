@@ -33,7 +33,6 @@ section {
       width: 100%;
       height: 5px;
       background-color: var(--clr-2);
-
       transition: width 2s ease;
     }
   }
@@ -54,7 +53,7 @@ section {
 
       .img-fluid {
         width: 100%;
-        filter: blur(1px);
+     
       }
     }
     .content {

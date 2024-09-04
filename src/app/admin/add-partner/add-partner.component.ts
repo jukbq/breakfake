@@ -52,6 +52,7 @@ export class AddPartnerComponent {
       description: [null],
       image: [null],
       link: [null],
+      posithion: [null]
     });
   }
 
@@ -59,6 +60,7 @@ export class AddPartnerComponent {
   getPartners(): void {
     this.partnersService.getAll().subscribe((data: any) => {
       this.partnersArr = data as [];
+      this.partnersArr.sort((a, b) => a.posithion - b.posithion);
     });
   }
 
@@ -69,6 +71,7 @@ export class AddPartnerComponent {
       description: patners.description,
       image: patners.image,
       link: patners.link,
+      posithion: patners.posithion,
     });
     this.image = patners.image;
     this.partnersEditStatus = true;

@@ -25,7 +25,7 @@
             <tbody>
                 @for(partners of partnersArr; track partnersArr; let i = $index){
                 <tr>
-                    <td>{{ i + 1 }}</td>
+                    <td>{{partners.posithion}}</td>
                     <td>{{ partners.name}}</td>
                     <td [innerHTML]="partners.description"></td>
                     <td class="image">
@@ -50,9 +50,18 @@
 
     <div class="input_block" [ngClass]="{ active: !partners_form }">
         <form [formGroup]="partnersForm" (ngSubmit)="addPartner()" class="form_category">
+    <!--Порядковий номер-->
+            <div class="init_block posithion">
+                <h4>Порядковий номер</h4>
+                <div class="input ">
+                    <input formControlName="posithion" type="number" name="posithion" class="form-control"
+                        placeholder="*Введіь номер ">
+                </div>
+            </div>
+
 
             <!--Назва партнера-->
-            <div class="input_block name_organization">
+            <div class="init_block name_organization">
                 <h4>Назва</h4>
                 <div class="input ">
                     <input formControlName="name" type="text" name="nameOrganization" class="form-control"
@@ -61,7 +70,7 @@
             </div>
 
             <!--Посилання-->
-            <div class="input_block nlink_organization">
+            <div class="init_block nlink_organization">
                 <h4>Посилання</h4>
                 <div class="input ">
                     <input formControlName="link" type="text" name="link" class="form-control"
@@ -71,17 +80,17 @@
 
 
             <!--Опис-->
-            <div class="input_block description_organization">
+            <div class="init_block description_organization">
                 <h4>Опис</h4>
-                <div class="input ">
-                    <div class="input ">
+                
+                    <div class="input_description  ">
                         <editor apiKey="7nz9ybi4njv0mtwxfy0gssnq6mboi2nk7jetpeg4n7brgqxq"
                             [init]="{ plugins: 'lists link image table code help wordcount' }" [inline]="false"
                             formControlName="description"
                             toolbar="bold italic underline | formatpainter | aligncenter alignleft alignright alignjustify | selectall | ltr rtl | code | help">
                         </editor>
                     </div>
-                </div>
+               
             </div>
 
             <!-- Зображення-->

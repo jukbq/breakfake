@@ -5,6 +5,7 @@ export interface PartnersRequest {
   link: string;
   description: string;
   image: string;
+  posithion: number;
 }
 
 export interface PartnersResponse extends PartnersRequest {

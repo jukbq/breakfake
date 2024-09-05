@@ -13,7 +13,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './partners.component.scss'
 })
 export class PartnersComponent {
-  public items: PartnersResponse[] = [];
+  public partnerArr: PartnersResponse[] = [];
+  public items: any = [];
   public image = ''
   public description = ''
 
@@ -28,14 +29,17 @@ export class PartnersComponent {
 
   getPartnert(): void {
     this.aboutSevice.getAll().subscribe((data: any) => {
-      const part = data;
-      part.sort((a: { posithion: number; }, b: { posithion: number; }) => a.posithion - b.posithion)
-      console.log(part);
-      this.items = part;
-
+      this.partnerArr = data as PartnersResponse[];
+      this.partnerArr.sort((a, b) => a.posithion - b.posithion)
+      /*    this.partnerSort() */
     })
+
   }
 
+  /*   partnerSort() {
+      this.items = this.partnerArr
+  
+    } */
 
 
 }

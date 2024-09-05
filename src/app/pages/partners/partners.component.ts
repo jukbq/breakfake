@@ -31,15 +31,15 @@ export class PartnersComponent {
     this.aboutSevice.getAll().subscribe((data: any) => {
       this.partnerArr = data as PartnersResponse[];
       this.partnerArr.sort((a, b) => a.posithion - b.posithion)
-      /*    this.partnerSort() */
+      this.partnerSort()
     })
 
   }
 
-  /*   partnerSort() {
-      this.items = this.partnerArr
-  
-    } */
+  partnerSort() {
+    this.items = this.partnerArr
+
+  }
 
 
 }

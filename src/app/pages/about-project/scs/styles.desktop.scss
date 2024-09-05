@@ -44,25 +44,25 @@ section {
     display: flex;
     align-items: flex-start;
 
-    .image {
-      width: 40%;
-      height: auto;
-      position: relative;
-      overflow: hidden;
-      padding-top: 5px;
-
-      .img-fluid {
-        width: 100%;
-     
-      }
-    }
     .content {
-      width: 60%;
-      height: 100%;
+      width: 100%;
+      position: relative;
       padding: 5px 10px;
       text-align: justify;
       margin-bottom: 10vh;
       line-height: 1.6;
+
+      .image {
+        width: 40%;
+        height: auto;
+        overflow: hidden;
+        padding: 5px;
+        float: left;
+
+        .img-fluid {
+          width: 100%;
+        }
+      }
     }
   }
 }

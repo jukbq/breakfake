@@ -9,10 +9,14 @@
     </div>
 
     <div class="description">
-        <div class="image">
-            <img [src]="image" class="img-fluid" alt="Background Image">
+        <div class="content">
+            <div class="image">
+                <img [src]="image" class="img-fluid" alt="Background Image">
+            </div>
+            <div class="text-content" [innerHTML]="description"></div>
+
+
         </div>
-        <div class="content" [innerHTML]="description"></div>
     </div>
 
 

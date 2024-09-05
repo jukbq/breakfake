@@ -5,13 +5,19 @@
         </div>
         <div class="line"></div>
     </div>
+    <div class="description">
+        <div class="content">
+            <div class="image">
+                <img *ngIf="imagen" [src]="imagen" alt="Image" class="img-fluid" alt="Background Image"
+                    (click)="openModal(imagen)">
+            </div>
+            <div class="text-content" [innerHTML]="description"></div>
 
-    <div class="image">
-        <img *ngIf="imagen" [src]="imagen" alt="Image" (click)="openModal(imagen)">
+
+        </div>
     </div>
 
-    <div class="description" [innerHTML]="description">
-    </div>
+
     <div class="source_btn">
         <a href="{{link}}" target="_blank" class="btn btn-outline-secondary" role="button">source</a>
     </div>

@@ -28,8 +28,11 @@ export class PartnersComponent {
 
   getPartnert(): void {
     this.aboutSevice.getAll().subscribe((data: any) => {
-      this.items = data;
-      /*       this.items.sort((a, b) => a.posithion - b.posithion); */
+      const part = data;
+      part.sort((a: { posithion: number; }, b: { posithion: number; }) => a.posithion - b.posithion)
+      console.log(part);
+      this.items = part;
+
     })
   }
 

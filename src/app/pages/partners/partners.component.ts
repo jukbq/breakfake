@@ -32,8 +32,6 @@ export class PartnersComponent {
     this.partnersService.getAll().subscribe((data: any) => {
       this.partnersArr = data as [];
       this.partnersArr.sort((a, b) => a.posithion - b.posithion);
-      console.log(this.partnersArr);
-
     });
   }
 

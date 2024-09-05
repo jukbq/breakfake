@@ -9,18 +9,19 @@
 
 
     <ul class="list-group">
-
-        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of items">
+  @for(partners of partnersArr; track partnersArr; let i = $index){
+        <li class="list-group-item d-flex justify-content-between align-items-center">
             <div class="image_link">
-                <a [href]="item.link" target="_blank">
-                    <img [src]="item.image" alt="{{ item.name }}" class="img-fluid" style="max-width: 150px;">
+                <a [href]="partners.link" target="_blank">
+                    <img [src]="partners.image" alt="{{ partners.name }}" class="img-fluid" style="max-width: 150px;">
                 </a>
             </div>
             <div class="title_description">
-                <h5>{{ item.name }}</h5>
-                <p [innerHTML]="item.description"></p>
+                <h5>{{ partners.name }}</h5>
+                <p [innerHTML]="partners.description"></p>
             </div>
         </li>
+  }
     </ul>
 
 

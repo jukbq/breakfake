@@ -13,33 +13,28 @@ import { RouterLink } from '@angular/router';
   styleUrl: './partners.component.scss'
 })
 export class PartnersComponent {
-  public partnerArr: PartnersResponse[] = [];
+  public partnersArr: Array<any> = [];
   public items: any = [];
   public image = ''
   public description = ''
 
   constructor(
-    private aboutSevice: PartnersService
+    private partnersService: PartnersService,
   ) { }
 
   ngOnInit(): void {
-    this.getPartnert()
+    this.getPartners()
 
   }
 
-  getPartnert(): void {
-    this.aboutSevice.getAll().subscribe((data: any) => {
-      this.partnerArr = data as PartnersResponse[];
-      this.partnerArr.sort((a, b) => a.posithion - b.posithion)
-      this.partnerSort()
-    })
-
+  // Отримання даних з сервера
+  getPartners(): void {
+    this.partnersService.getAll().subscribe((data: any) => {
+      this.partnersArr = data as [];
+      this.partnersArr.sort((a, b) => a.posithion - b.posithion);
+    });
   }
 
-  partnerSort() {
-    this.items = this.partnerArr
-
-  }
 
 
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { EventResponse } from '../../shared/interfaces/events';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { CountryService } from '../../shared/services/country/country.service';
@@ -14,6 +14,7 @@ import {
 } from '@angular/fire/storage';
 import { EventsService } from '../../shared/services/events/events.service';
 import { Router } from '@angular/router';
+import { CountryResponse } from '../../shared/interfaces/country';
 
 @Component({
   selector: 'app-add-events',
@@ -23,6 +24,9 @@ import { Router } from '@angular/router';
   styleUrl: './add-events.component.scss'
 })
 export class AddEventsComponent {
+  isObject(arg0: CountryResponse): any {
+    throw new Error('Method not implemented.');
+  }
   public countryArr: Array<any> = [];
   public eventArr: Array<EventResponse> = [];
   public eventForm!: FormGroup;
@@ -42,17 +46,19 @@ export class AddEventsComponent {
   ) { }
 
   ngOnInit(): void {
+    this.initcountryForm();
     this.getCountry();
     this.getEvent();
-    this.initcountryForm();
+
   }
+
 
   initcountryForm(): void {
     this.eventForm = this.formBuild.group({
       country: [null],
-      namen: [null],
-      link: [null],
-      description: [null],
+      namen: [null, [Validators.required, Validators.minLength(3)]],
+      link: [null, [Validators.required, Validators.pattern('https?://.+')]],
+      description: [null, [Validators.required, Validators.minLength(10)]],
       imagen: [null],
 
     });
@@ -84,16 +90,26 @@ export class AddEventsComponent {
   getEvent(): void {
     this.eventService.getAll().subscribe((data: any) => {
       this.eventArr = data as EventResponse[];
+      console.log(this.eventArr);
+
     });
   }
 
   onCountrySelect(event: any): void {
-    const selectedCountry = event.target.value;
-    this.eventService.getEventByCountryID(selectedCountry).subscribe((data: any) => {
-      this.eventArr = data
-    });
+    const contryID = event.target.value;
+    this.getCoutryNews(contryID)
   }
 
+
+  getCoutryNews(contryID: any) {
+    if (contryID == 'all') {
+      this.getEvent()
+    } else {
+      this.eventService.getEventByCountryID(contryID).subscribe((data: any) => {
+        this.eventArr = data;
+      })
+    }
+  }
   // Редагування події
   editEvent(event: EventResponse) {
     this.eventForm.patchValue({
@@ -107,14 +123,22 @@ export class AddEventsComponent {
     this.imagen = event.imagen;
     this.eventEditStatus = true;
     this.uploadPercent = 100;
-
     this.event_form = true;
     this.eventID = event.id;
   }
 
   delEvent(index: EventResponse) {
-    const task = ref(this.storsgeIcon, index.imagen);
-    deleteObject(task);
+    if (index.imagen) {
+      const task = ref(this.storsgeIcon, index.imagen);
+      deleteObject(task).then(() => {
+        console.log('Файл успішно видалено');
+      }).catch((error) => {
+        console.error('Помилка під час видалення файлу:', error);
+      });
+    } else {
+      console.log('Немає зображення для видалення');
+    }
+
     this.eventService.delEvent(index.id as string).then(() => {
       this.ngOnInit();
     });
@@ -131,7 +155,7 @@ export class AddEventsComponent {
           this.resetForm();
           this.uploadPercent = 0;
           this.imagen = '';
-          this.ngOnInit();
+
         });
     } else {
       let currentEventNumber = this.eventForm.get('event')?.value?.numberevent;
@@ -151,7 +175,7 @@ export class AddEventsComponent {
         this.resetForm();
         this.uploadPercent = 0;
         this.imagen = '';
-        this.ngOnInit()
+
       });
     }
 

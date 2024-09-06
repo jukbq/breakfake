@@ -40,6 +40,7 @@ export class FakeService {
   }
 
   delFake(id: any) {
+    console.log(id);
     const fakeReference = doc(this.afs, `fake/${id}`);
     return deleteDoc(fakeReference);
   }

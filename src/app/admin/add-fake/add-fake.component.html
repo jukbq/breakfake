@@ -48,7 +48,7 @@
                     <td>{{ fakes.nameOrganization}}</td>
                     <td [innerHTML]="fakes.descriptionOrganization"></td>
                     <td class="image">
-                        <img [src]="fakes.imageOrganization" />
+                        <img *ngIf="fakes.imageOrganization" [src]="fakes.imageOrganization" />
                     </td>
                     <td class="btn_tr">
                         <a (click)="editFake(fakes)" type="button" title="Редагувати">

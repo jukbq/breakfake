@@ -55,9 +55,9 @@ export class AddFakeComponent {
 
   initcountryForm(): void {
     this.fakeForm = this.formBuild.group({
-      country: [null],
-      nameOrganization: [null],
-      descriptionOrganization: [null],
+      country: [null, [Validators.required]],
+      nameOrganization: [null, [Validators.required, Validators.minLength(3)]],
+      descriptionOrganization: [null, [Validators.required, Validators.minLength(10)]],
       imageOrganization: [null],
       linkPetition: [null],
     });
@@ -127,9 +127,18 @@ export class AddFakeComponent {
     this.fakeID = fake.id;
   }
 
-  delFake(index: FakeResponse) {
-    const task = ref(this.storsgeIcon, index.imageOrganization);
-    deleteObject(task);
+  delFake(index: any) {
+    if (index.imageOrganization) {
+      const task = ref(this.storsgeIcon, index.imageOrganization);
+      deleteObject(task).then(() => {
+        console.log('Файл успішно видалено');
+      }).catch((error) => {
+        console.error('Помилка під час видалення файлу:', error);
+      });
+    } else {
+      console.log('Немає зображення для видалення');
+    }
+
     this.fakeService.delFake(index.id as string).then(() => {
       this.ngOnInit();
     });
@@ -146,7 +155,7 @@ export class AddFakeComponent {
           this.fakeForm.reset();
           this.uploadPercent = 0;
           this.imageOrganization = '';
-          this.ngOnInit();
+
         });
     } else {
       let currentFakeNumber = this.fakeForm.get('fake')?.value?.numberfake;
@@ -166,7 +175,7 @@ export class AddFakeComponent {
         this.fakeForm.reset();
         this.uploadPercent = 0;
         this.imageOrganization = '';
-        this.ngOnInit()
+
       });
     }
 

@@ -1,5 +1,5 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PartnersService } from '../../shared/services/partners/partners.service';
 import { CommonModule, isPlatformBrowser, ViewportScroller } from '@angular/common';
 import { EditorModule } from '@tinymce/tinymce-angular';
@@ -48,11 +48,11 @@ export class AddPartnerComponent {
 
   initcountryForm(): void {
     this.partnersForm = this.formBuild.group({
-      name: [null],
-      description: [null],
+      name: [null, [Validators.required, Validators.minLength(3)]],
+      description: [null, [Validators.required, Validators.minLength(10)]],
       image: [null],
       link: [null],
-      posithion: [null]
+      posithion: [0]
     });
   }
 
@@ -81,8 +81,16 @@ export class AddPartnerComponent {
   }
 
   delPartner(index: any) {
-    const task = ref(this.storsgeIcon, index.imageOrganization);
-    deleteObject(task);
+    if (index.image) {
+      const task = ref(this.storsgeIcon, index.image);
+      deleteObject(task).then(() => {
+        console.log('Файл успішно видалено');
+      }).catch((error) => {
+        console.error('Помилка під час видалення файлу:', error);
+      });
+    } else {
+      console.log('Немає зображення для видалення');
+    }
     this.partnersService.delPartners(index.id as string).then(() => {
       this.ngOnInit();
     });
@@ -99,7 +107,7 @@ export class AddPartnerComponent {
           this.partnersForm.reset();
           this.uploadPercent = 0;
           this.image = '';
-          this.ngOnInit();
+
         });
     } else {
       let currentPartnerNumber =
@@ -123,7 +131,7 @@ export class AddPartnerComponent {
         this.partnersForm.reset();
         this.uploadPercent = 0;
         this.image = '';
-        this.ngOnInit();
+
       });
     }
 

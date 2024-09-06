@@ -19,6 +19,7 @@ export class AnimationService {
     const callback = (entries: IntersectionObserverEntry[]) => {
       if (target.className == 'title') {
         thresholdValue = 1;
+        thresholdValue = 1;
         target.style.opacity = '1';
         target.style.left = '0%';
         const line = target.querySelector('.line') as HTMLElement;

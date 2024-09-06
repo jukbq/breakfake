@@ -18,6 +18,7 @@
 
                 <select id="countrySelect" class="form-control" (change)="onCountrySelect($event)">
                     <option value="" disabled selected>Оберіть країну</option>
+                    <option class="country" value="all">All</option>
                     <option *ngFor="let country of countryArr" [value]="country.id">{{ country.name }}</option>
                 </select>
             </div>
@@ -31,7 +32,6 @@
             <thead>
                 <tr>
                     <th scope="col">№</th>
-                    <th scope="col">Країна</th>
                     <th scope="col">Назва</th>
                     <th scope="col">Опис</th>
                     <th scope="col">Картинка</th>
@@ -42,13 +42,13 @@
                 @for(events of eventArr; track eventArr; let i = $index){
                 <tr>
                     <td>{{ i + 1 }}</td>
-                    <td>{{ events.country.name}}</td>
-                    <td class="name">{{ events.namen}}</td>
+
+                    <td class="name">{{events.namen}}</td>
                     <td>
                         <div class="description" [innerHTML]="events.description"></div>
                     </td>
                     <td class="image">
-                        <img [src]="events.imagen" />
+                        <img *ngIf="events.imagen" [src]="events.imagen" />
                     </td>
                     <td class="btn_tr">
                         <a (click)="editEvent(events)" type="button" title="Редагувати">
@@ -73,7 +73,6 @@
             <div class="country_select form-group">
                 <label for="countrySelect">Виберіть країну</label>
                 <select id="countrySelect" formControlName="country" class="form-control">
-                    <option value="" disabled selected>Оберіть країну</option>
                     <option [ngValue]="country" *ngFor="let country of countryArr">
                         {{ country.name}}
                     </option>

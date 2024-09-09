@@ -70,6 +70,22 @@ section {
       }
     }
 
+    .pettition_button {
+      width: 90%;
+      padding: 10px;
+      position: relative;
+      .pettion_btn {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        background-color: var(--clr-2);
+        color: var(--clr-w);
+        text-align: center;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+    }
+
     .container-fluid {
       width: 80%;
       position: relative;

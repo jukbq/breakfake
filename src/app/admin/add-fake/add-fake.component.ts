@@ -91,6 +91,8 @@ export class AddFakeComponent {
   getFake(): void {
     this.fakeService.getAll().subscribe((data: any) => {
       this.fakeArr = data as FakeResponse[];
+      this.fakeArr.sort((a, b) => a.nameOrganization.localeCompare(b.nameOrganization));
+
     });
   }
 

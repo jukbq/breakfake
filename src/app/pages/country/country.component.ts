@@ -24,6 +24,7 @@ export class CountryComponent {
   public flag = '';
   public name = '';
   public countryID = '';
+  public falePettition = ''
 
 
   constructor(private route: ActivatedRoute,
@@ -47,12 +48,17 @@ export class CountryComponent {
       this.map = data.circuit;
       this.flag = data.flag;
       this.name = data.name;
+      this.falePettition = data.petition
+      console.log(data);
+
     })
   }
 
   getFake(): void {
     this.fakeService.getFakeByCountryID(this.countryID).subscribe((data: any) => {
       this.items = data as FakeResponse[];
+      console.log(this.items);
+
 
 
       if (this.items.length > 0) {

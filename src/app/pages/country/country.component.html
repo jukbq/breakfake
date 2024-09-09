@@ -12,7 +12,8 @@
         </div>
 
         <div class="pettition_button">
-            <a *ngIf="falePettition" class="pettion_btn" href="{{falePettition}}" target="_blank">PETITION</a>
+            <a *ngIf="falePettition" class="pettion_btn" href="{{falePettition}}" target="_blank">Click to
+                BREAK the Fakes</a>
         </div>
 
         <div class="container-fluid">
@@ -50,12 +51,12 @@
                 <!-- Права колонка: Деталі -->
                 <div class="col-md-8">
                     <div class="information" *ngIf="selectedItem">
-                        <a *ngIf="selectedItem.linkPetition" class="pettion_btn" href="{{selectedItem.linkPetition}}"
-                            target="_blank">PETITION</a>
                         <h2>{{ selectedItem.nameOrganization }}</h2>
                         <p class="description" [innerHTML]="selectedItem.descriptionOrganization"></p>
                         <img [src]="selectedItem.imageOrganization" alt="Image" class="img-fluid"
                             (click)="openModal(selectedItem.imageOrganization)">
+                        <a *ngIf="selectedItem.linkPetition" class="pettion_btn" href="{{selectedItem.linkPetition}}"
+                            target="_blank">PETITION</a>
                     </div>
                 </div>
             </div>

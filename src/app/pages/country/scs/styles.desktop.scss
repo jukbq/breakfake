@@ -73,11 +73,13 @@ section {
     .pettition_button {
       width: 90%;
       padding: 10px;
+      display: flex;
+      justify-content: right;
       position: relative;
       .pettion_btn {
         display: block;
-        width: 100%;
-        padding: 10px 0;
+        width: auto;
+        padding: 10px 10px;
         background-color: var(--clr-2);
         color: var(--clr-w);
         text-align: center;
@@ -154,12 +156,13 @@ section {
             .pettion_btn {
               display: block;
               width: 100%;
-              padding: 10px 0;
+              padding: 10px 10зч;
               background-color: var(--clr-2);
               color: var(--clr-w);
               text-align: center;
               border-radius: 5px;
               text-decoration: none;
+              margin-top: 10px;
             }
           }
         }

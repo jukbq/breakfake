@@ -109,6 +109,7 @@ export class AddFakeComponent {
     } else {
       this.fakeService.getFakeByCountryID(contryID).subscribe((data: any) => {
         this.fakeArr = data;
+        this.fakeArr.sort((a, b) => a.nameOrganization.localeCompare(b.nameOrganization));
       })
     }
   }

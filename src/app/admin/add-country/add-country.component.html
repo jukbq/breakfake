@@ -43,8 +43,17 @@
                         <td class="image">
                             <img [src]="country.circuit" />
                         </td>
-                        <td>
+                        <td class="pettion">
+                            <div *ngIf="country.petition !== ''; else noData" class="linkPettion">
 
+                                <a [href]="country.petition" target="_blank" rel="noopener noreferrer">Петиція</a>
+                                <button (click)="addPettion(country.id)">Редагувати</button>
+                            </div>
+                            <ng-template #noData>
+                                <div class="addPettion">
+                                    <button (click)="addPettion(country.id)">Додати</button>
+                                </div>
+                            </ng-template>
                         </td>
                         <td class="btn_tr">
                             <a (click)="delCountry(country)" type="button" title="Видалити">

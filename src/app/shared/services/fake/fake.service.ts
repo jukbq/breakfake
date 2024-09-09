@@ -45,22 +45,22 @@ export class FakeService {
     return deleteDoc(fakeReference);
   }
 
-  async addPetitionField(): Promise<void> {
-    // Отримуємо всі документи з колекції fake
-    const q = query(this.fakeCollection);
-    const querySnapshot = await getDocs(q);
-
-    // Проходимося по кожному документу в колекції fake
-    for (const document of querySnapshot.docs) {
-      const docRef = doc(this.afs, `fake/${document.id}`);
-      const fakeData = document.data() as FakeResponse;
-
-      // Перевіряємо наявність властивості petition
-      if (fakeData.country && fakeData.country.petition === undefined) {
-        await updateDoc(docRef, {
-          'country.petition': ''  // Додаємо властивість всередині об'єкта country
-        });
-      }
-    }
-  }
+  /*  async addPetitionField(): Promise<void> {
+     // Отримуємо всі документи з колекції fake
+     const q = query(this.fakeCollection);
+     const querySnapshot = await getDocs(q);
+ 
+     // Проходимося по кожному документу в колекції fake
+     for (const document of querySnapshot.docs) {
+       const docRef = doc(this.afs, `fake/${document.id}`);
+       const fakeData = document.data() as FakeResponse;
+ 
+       // Перевіряємо наявність властивості petition
+       if (fakeData.country && fakeData.country.petition === undefined) {
+         await updateDoc(docRef, {
+           'country.petition': ''  // Додаємо властивість всередині об'єкта country
+         });
+       }
+     }
+   } */
 }

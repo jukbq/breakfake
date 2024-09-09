@@ -31,15 +31,22 @@ export class CountryService {
     return deleteDoc(countryDocumentReference);
   }
 
-  async addPetitionField(): Promise<void> {
-    const q = query(this.countryCollection);
-    const querySnapshot = await getDocs(q);
+  /*  async addPetitionField(): Promise<void> {
+     const q = query(this.countryCollection);
+     const querySnapshot = await getDocs(q);
+ 
+     querySnapshot.forEach(async (document) => {
+       const docRef = doc(this.afs, `country/${document.id}`);
+       await updateDoc(docRef, {
+         petition: ''
+       });
+     });
+   } */
 
-    querySnapshot.forEach(async (document) => {
-      const docRef = doc(this.afs, `country/${document.id}`);
-      await updateDoc(docRef, {
-        petition: ''
-      });
+  addPettionByID(id: any, link: any) {
+    const countryDocumentReference = doc(this.afs, `country/${id}`);
+    updateDoc(countryDocumentReference, {
+      petition: link
     });
   }
 

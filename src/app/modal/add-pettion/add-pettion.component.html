@@ -1,0 +1,17 @@
+<div class="modal-body">
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+    <div class="input_block petition_link ">
+        <p>Посилання на петицію</p>
+        <div class="input ">
+            <input #linkInput type="text" name="linkPetition" class="form-control"
+                placeholder="*Введіть посилання на петицію">
+        </div>
+    </div>
+    <div class="creat_button">
+        <button (click)="addPetition(linkInput.value)" class="btn btn-outline-secondary" data-rel="address"
+            type="button">
+            Додати
+        </button>
+    </div>
+
+</div>

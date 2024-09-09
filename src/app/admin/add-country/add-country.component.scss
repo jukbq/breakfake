@@ -39,6 +39,17 @@ section {
 
         tbody {
           tr {
+            .pettion {
+              height: 100%;
+              .linkPettion,
+              .addPettion {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+              }
+            }
             .image {
               width: 150px;
               height: 70px;

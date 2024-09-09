@@ -4,6 +4,8 @@ import { CountryService } from '../../shared/services/country/country.service';
 import { CountryResponse } from '../../shared/interfaces/country';
 import { CommonModule } from '@angular/common';
 import { FakeService } from '../../shared/services/fake/fake.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddPettionComponent } from '../../modal/add-pettion/add-pettion.component';
 
 @Component({
   selector: 'app-add-country',
@@ -25,15 +27,17 @@ export class AddCountryComponent {
   constructor(
     private formBuild: FormBuilder,
     private fakeService: FakeService,
+    private modalService: NgbModal,
     private countryService: CountryService
   ) { }
+
 
   ngOnInit(): void {
     this.getCountry();
     this.initcountryForm();
     this.initializeCountryList();
-    this.countryService.addPetitionField()
-    this.fakeService.addPetitionField()
+    /*   this.countryService.addPetitionField() */
+    /*  this.fakeService.addPetitionField() */
   }
 
   initcountryForm(): void {
@@ -396,4 +400,26 @@ export class AddCountryComponent {
         console.error('Помилка при видаленні запису:', error);
       });
   }
+
+
+  addPettion(countryID: string) {
+    const modalRef = this.modalService.open(AddPettionComponent);
+    modalRef.componentInstance.countryID = countryID;
+
+    /*     modalRef.result.then((result) => {
+          if (result) {
+            console.log('Введене значення:', result);
+            // Можна передати result для подальшої обробки
+            this.updateFacePrettion(countryID, result);
+          }
+        }).catch((error) => {
+          console.log('Модальне вікно було закрите без збереження даних');
+        }); */
+  };
+
+  /*   updateFacePrettion(countryID: string, value: string) {
+      this.fakeService
+    } */
+
+
 }

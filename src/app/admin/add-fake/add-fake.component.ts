@@ -51,6 +51,7 @@ export class AddFakeComponent {
     this.getCountry();
     this.getFake();
     this.initcountryForm();
+
   }
 
   initcountryForm(): void {

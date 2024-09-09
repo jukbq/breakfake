@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CountryService } from '../../shared/services/country/country.service';
 import { CountryResponse } from '../../shared/interfaces/country';
 import { CommonModule } from '@angular/common';
+import { FakeService } from '../../shared/services/fake/fake.service';
 
 @Component({
   selector: 'app-add-country',
@@ -12,7 +13,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './add-country.component.scss'
 })
 export class AddCountryComponent {
-  coutryList: any[] = [];
+  countryList: any[] = [];
   public countryForm!: FormGroup;
   public countryArr: any[] = [];
   public country_edit_status = false;
@@ -23,6 +24,7 @@ export class AddCountryComponent {
 
   constructor(
     private formBuild: FormBuilder,
+    private fakeService: FakeService,
     private countryService: CountryService
   ) { }
 
@@ -30,6 +32,8 @@ export class AddCountryComponent {
     this.getCountry();
     this.initcountryForm();
     this.initializeCountryList();
+    this.countryService.addPetitionField()
+    this.fakeService.addPetitionField()
   }
 
   initcountryForm(): void {
@@ -38,6 +42,7 @@ export class AddCountryComponent {
       link: [null, Validators.required],
       flag: [null],
       circuit: [null],
+      petition: [null], //нова властивість
 
     });
   }
@@ -52,16 +57,16 @@ export class AddCountryComponent {
 
   // Фільтруємо список країн
   filterCountryList(): void {
-    this.coutryList = this.coutryList.filter(
+    this.countryList = this.countryList.filter(
       (country) =>
         !this.countryArr.some((arrCountry) => arrCountry.link === country.link)
     );
-    this.coutryList.sort((a, b) => a.name.localeCompare(b.name));
+    this.countryList.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   initializeCountryList(): void {
     // Ваш початковий список країн
-    this.coutryList = [
+    this.countryList = [
       {
         name: 'Finland',
         link: 'finland',
@@ -347,7 +352,7 @@ export class AddCountryComponent {
       },
     ];
 
-    this.coutryList.sort((a, b) => a.name.localeCompare(b.name));
+    this.countryList.sort((a, b) => a.name.localeCompare(b.name));
 
     // Завантажте список країн, які вже є в базі даних
     this.getCountry();
@@ -357,7 +362,7 @@ export class AddCountryComponent {
     const selectedLink = event.target.value;
 
 
-    const selectedCountry = this.coutryList.find(
+    const selectedCountry = this.countryList.find(
       (country) => country.link === selectedLink
     );
 
@@ -367,6 +372,7 @@ export class AddCountryComponent {
         link: selectedCountry.link,
         flag: selectedCountry.flag,
         circuit: selectedCountry.circuit,
+
       });
       this.creatCountry();
     }

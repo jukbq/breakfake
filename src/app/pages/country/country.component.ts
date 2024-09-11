@@ -57,7 +57,7 @@ export class CountryComponent {
   getFake(): void {
     this.fakeService.getFakeByCountryID(this.countryID).subscribe((data: any) => {
       this.items = data as FakeResponse[];
-      console.log(this.items);
+      this.items.sort((a, b) => a.nameOrganization.localeCompare(b.nameOrganization));
 
 
 

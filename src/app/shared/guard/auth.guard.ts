@@ -1,8 +1,8 @@
 import { inject } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { HeaderComponent } from '../../components/header/header.component';
 import { ROLE } from './role.constant';
+import { AdminComponent } from '../../admin/admin.component';
 
 export const authGuard: CanActivateFn = (
   route: ActivatedRouteSnapshot,
@@ -13,13 +13,13 @@ export const authGuard: CanActivateFn = (
   | boolean
   | UrlTree => {
   const router: Router = inject(Router);
-  const headerComponent: HeaderComponent = inject(HeaderComponent);
+  const adminComponent: AdminComponent = inject(AdminComponent);
   const login = JSON.parse(localStorage.getItem('currentUser') as string);
-  if (login && (login.role === ROLE.ADMIN || login.role === ROLE.USER)) {
-    headerComponent.isLogin = true;
+  if (login && (login.role === ROLE.ADMIN)) {
+    adminComponent.isLogin = true;
     return true;
   }
-  headerComponent.isLogin = false;
+  adminComponent.isLogin = false;
   router.navigate(['']);
   return false;
 };

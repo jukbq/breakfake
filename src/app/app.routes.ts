@@ -12,6 +12,7 @@ import { AddFakeComponent } from './admin/add-fake/add-fake.component';
 import { AddCountryComponent } from './admin/add-country/add-country.component';
 import { CountryComponent } from './pages/country/country.component';
 import { NewsPageComponent } from './pages/news-page/news-page.component';
+import { authGuard } from './shared/guard/auth.guard';
 
 
 export const routes: Routes = [
@@ -34,6 +35,7 @@ export const routes: Routes = [
       { path: 'partners', component: AddPartnerComponent },
       { path: 'events', component: AddEventsComponent },
       { path: '', pathMatch: 'full', redirectTo: 'action' },
+
     ],
   },
 ];

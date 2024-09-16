@@ -1,5 +1,5 @@
-<section>
-    <ul class="nav nav-tabs">
+<section *ngIf="isLogin">
+    <ul class=" nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link" [routerLink]="'country'" routerLinkActive="active"
                 [routerLinkActiveOptions]="{ exact: true }">Країни</a>

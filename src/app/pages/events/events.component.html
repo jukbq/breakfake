@@ -28,14 +28,14 @@
                         </div>
                     </a>
                 </div>
-            <div class="title_block">
-                <div class="title_description">
-                    <h4>{{ item.namen }}</h4>
-                </div>
-                <div class="more_btn">
-                    <button type="button" class="btn btn-outline-secondary" [routerLink]="['/news-page']"
-                        [queryParams]="{ newsID: item.id }">More </button>
-                </div>
+                <div class="title_block">
+                    <div class="title_description">
+                        <h4>{{ item.namen }}</h4>
+                    </div>
+                    <div class="more_btn">
+                        <button type="button" class="btn btn-outline-secondary" [routerLink]="['/news-page']"
+                            [queryParams]="{ newsID: item.id }">More </button>
+                    </div>
                 </div>
             </li>
         </ul>
@@ -68,7 +68,7 @@
             </div>
         </div>
         <div class="creat">
-            <p>© 2024 All Rights Reserved.</p>
+            <p>© 2024 <a href="http://localhost:4200/" target="_blank">OhleDev</a> All Rights Reserved.</p>
         </div>
     </footer>
 

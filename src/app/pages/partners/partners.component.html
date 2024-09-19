@@ -9,7 +9,7 @@
 
 
     <ul class="list-group">
-  @for(partners of partnersArr; track partnersArr; let i = $index){
+        @for(partners of partnersArr; track partnersArr; let i = $index){
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <div class="image_link">
                 <a [href]="partners.link" target="_blank">
@@ -21,7 +21,7 @@
                 <div class="description" [innerHTML]="partners.description"></div>
             </div>
         </li>
-  }
+        }
     </ul>
 
 
@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="creat">
-            <p>© 2024 All Rights Reserved.</p>
+            <p>© 2024 <a href="http://localhost:4200/" target="_blank">OhleDev</a> All Rights Reserved.</p>
         </div>
     </footer>
 

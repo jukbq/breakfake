@@ -6,6 +6,7 @@ export interface EventRequest {
     link: string;
     description: string;
     imagen: string;
+    createdAt: string;
 }
 
 export interface EventResponse extends EventRequest {

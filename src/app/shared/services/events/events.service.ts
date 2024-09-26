@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EventResponse } from '../../interfaces/events';
-import { addDoc, collection, collectionData, CollectionReference, deleteDoc, doc, docData, DocumentData, Firestore, query, updateDoc, where } from '@angular/fire/firestore';
+import { addDoc, collection, collectionData, CollectionReference, deleteDoc, doc, docData, DocumentData, Firestore, getDocs, query, updateDoc, where } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -44,4 +44,16 @@ export class EventsService {
     const eventReference = doc(this.afs, `event/${id}`);
     return deleteDoc(eventReference);
   }
+
+  /*   async addPetitionField(date: any): Promise<void> {
+      const q = query(this.eventCollection);
+      const querySnapshot = await getDocs(q);
+  
+      querySnapshot.forEach(async (document) => {
+        const docRef = doc(this.afs, `event/${document.id}`);
+        await updateDoc(docRef, {
+          createdAt: date
+        });
+      });
+    } */
 }

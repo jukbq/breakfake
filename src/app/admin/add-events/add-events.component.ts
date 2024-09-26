@@ -35,6 +35,7 @@ export class AddEventsComponent {
   public event_form = false;
   public eventEditStatus = false;
   private eventID!: number | string;
+  createdAt: any = '';
 
   constructor(
     private countryService: CountryService,
@@ -46,6 +47,11 @@ export class AddEventsComponent {
   ) { }
 
   ngOnInit(): void {
+    const currentTime = new Date();
+    const day = (currentTime.getDate() < 10 ? '0' : '') + currentTime.getDate();
+    const month = (currentTime.getMonth() + 1 < 10 ? '0' : '') + (currentTime.getMonth() + 1);
+    const year = currentTime.getFullYear();
+    this.createdAt = `${year}-${month}-${day}`;
     this.initcountryForm();
     this.getCountry();
     this.getEvent();
@@ -60,6 +66,7 @@ export class AddEventsComponent {
       link: [null, [Validators.required, Validators.pattern('https?://.+')]],
       description: [null, [Validators.required, Validators.minLength(10)]],
       imagen: [null],
+      createdAt: [null],
 
     });
   }
@@ -90,8 +97,13 @@ export class AddEventsComponent {
   getEvent(): void {
     this.eventService.getAll().subscribe((data: any) => {
       this.eventArr = data as EventResponse[];
-      console.log(this.eventArr);
+      this.eventArr.sort((a, b) => {
+        const dateA = new Date(a.createdAt);
+        const dateB = new Date(b.createdAt);
 
+        // Якщо хочете, щоб найближча дата була першою:
+        return dateB.getTime() - dateA.getTime();
+      });
     });
   }
 
@@ -118,6 +130,7 @@ export class AddEventsComponent {
       link: event.link,
       description: event.description,
       imagen: event.imagen,
+      createdAt: event.createdAt,
 
     });
     this.imagen = event.imagen;
@@ -158,6 +171,7 @@ export class AddEventsComponent {
 
         });
     } else {
+
       let currentEventNumber = this.eventForm.get('event')?.value?.numberevent;
       if (typeof currentEventNumber === 'number' && !isNaN(currentEventNumber)) {
         // Збільшуємо значення на 1 при додаванні нової категорії
@@ -166,6 +180,7 @@ export class AddEventsComponent {
         // Оновлюємо значення numberСategories у формі перед відправкою
         this.eventForm.patchValue({
           numberСategories: currentEventNumber,
+          createdAt: this.createdAt,
         });
       }
 

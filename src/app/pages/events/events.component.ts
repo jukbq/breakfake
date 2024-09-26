@@ -43,6 +43,13 @@ export class EventsComponent {
   getevents() {
     this.eventsService.getAll().subscribe((data: any) => {
       this.items = data
+      this.items.sort((a, b) => {
+        const dateA = new Date(a.createdAt);
+        const dateB = new Date(b.createdAt);
+
+        // Якщо хочете, щоб найближча дата була першою:
+        return dateB.getTime() - dateA.getTime();
+      });
 
     })
   }

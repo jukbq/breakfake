@@ -41,7 +41,9 @@
             <tbody>
                 @for(events of eventArr; track eventArr; let i = $index){
                 <tr>
-                    <td>{{ i + 1 }}</td>
+                    <td>{{ i + 1 }}
+                        {{events.createdAt}}
+                    </td>
 
                     <td class="name">{{events.namen}}</td>
                     <td>

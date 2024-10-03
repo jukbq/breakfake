@@ -133,6 +133,8 @@ export class AddEventsComponent {
       createdAt: event.createdAt,
 
     });
+    console.log(this.eventForm.value);
+
     this.imagen = event.imagen;
     this.eventEditStatus = true;
     this.uploadPercent = 100;
@@ -182,7 +184,13 @@ export class AddEventsComponent {
           numberСategories: currentEventNumber,
           createdAt: this.createdAt,
         });
+        console.log(this.eventForm.value);
+
       }
+      this.eventForm.patchValue({
+        createdAt: this.createdAt,
+      });
+      console.log(this.eventForm.value);
 
       this.eventService.addEvent(this.eventForm.value).then(() => {
         this.eventEditStatus = false;
